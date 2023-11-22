@@ -70,8 +70,7 @@
             </div>
         </div>
     </div>
-<%--    底部导航--%>
-
+    <jsp:include page="footer.jsp"></jsp:include>
 </div>
 
 </body>

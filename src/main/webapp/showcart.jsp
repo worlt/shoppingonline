@@ -26,7 +26,7 @@
 <div class="con">
   <div class="head">
     <a href="index.jsp">
-      <img src="img/logo_login.png" alt="" />
+      <img src="logo/reglogo.png" title="返回首页" />
     </a>
   </div>
   <div class="shop_box">
@@ -87,6 +87,6 @@
     <input type="button" name="" id="addmon" value="订单结算" />
   </div>
 </div>
-<%--<jsp:include page="footer/footer.jsp"></jsp:include>--%>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
