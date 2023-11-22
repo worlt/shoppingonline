@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/cartServlet")
-public class CartServlet extends BaseServlet {
+public class  CartServlet extends BaseServlet {
     private CartService cartService = new CartServiceImpl();
 
     //添加购物车或者关注列表

@@ -120,7 +120,7 @@ function addCart(idd, midd) {
 	var add = document.getElementById("cart");
 	var f = document.getElementById("fform");
 	if (add.value == "加入购物车") {
-		f.action = "/shopping-online_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=cart";
+		f.action = "/shoppingonline_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=cart";
 		f.submit();
 	} else {
 		alert("当前商品已加入购物车!");
@@ -133,7 +133,7 @@ function addStar(idd, midd) {
 	var add = document.getElementById("star");
 	var f = document.getElementById("fform");
 	if (add.value == "关注商品") {
-		f.action = "/shopping-online_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=star";
+		f.action = "/shoppingonline_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=star";
 		f.submit();
 	} else {
 		alert("当前商品已关注!");

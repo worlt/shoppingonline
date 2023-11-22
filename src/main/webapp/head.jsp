@@ -6,7 +6,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/head.css"/>
     <link rel="shortcut icon" href="logo/favicon.ico">
-    <%--    <jsp:include page="/cartServlet?key=num"></jsp:include>--%>
+        <jsp:include page="/cartServlet?key=num"></jsp:include>
     <%
         beans.User user = new beans.User(0, "", "", "", 0, "");
         int num = 0;
