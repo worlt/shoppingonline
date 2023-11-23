@@ -46,7 +46,7 @@
 <div class="head">
     <div class="con">
         <div class="logo">
-            <a href="<%=request.getContextPath()%>/BSServlet?key=toAdmin">
+            <a href="<%=request.getContextPath()%>/AdminServlet?key=toAdmin">
                 <img src="logo/mainlogo2.png" alt="罗友购物网-网购首选品牌！"/>
             </a>
         </div>

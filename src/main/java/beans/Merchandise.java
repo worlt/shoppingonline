@@ -9,6 +9,8 @@ public class Merchandise {
 
     private int inum;
 
+
+
     public int getMid() {
         return mid;
     }
@@ -54,6 +56,26 @@ public class Merchandise {
     }
 
     public void setInum(int inum) {
+        this.inum = inum;
+    }
+
+    public Merchandise(int mid, String mname, double mprice, String intro, String tips, int inum) {
+        this.mid = mid;
+        this.mname = mname;
+        this.mprice = mprice;
+        this.intro = intro;
+        this.tips = tips;
+        this.inum = inum;
+    }
+
+    public Merchandise() {
+    }
+
+    public Merchandise(String mname, double mprice, String intro, String tips, int inum) {
+        this.mname = mname;
+        this.mprice = mprice;
+        this.intro = intro;
+        this.tips = tips;
         this.inum = inum;
     }
 }
