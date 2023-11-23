@@ -17,7 +17,7 @@
 
   <div class="foot_box">
     <div class="con">
-      <p>版权所有 © 成家铭 © 2023 保留所有权利 保留所有权利 | <a href="dog.jsp">worlt</a>	| <a href="dog.jsp">站长统计</a></p>
+      <p>版权所有 © worlt1219 © 2023 保留所有权利 保留所有权利 | <a href="dog.jsp">worlt</a>	| <a href="dog.jsp">站长统计</a></p>
       <p class="b">罗友购物-love you</p>
     </div>
   </div>
