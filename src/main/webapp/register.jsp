@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="logo/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/reg.css">
     <script src="js/reg.js"></script>
 <%--    <script>--%>
@@ -70,8 +71,7 @@
             </div>
         </div>
     </div>
-    <jsp:include page="footer.jsp"></jsp:include>
 </div>
-
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
