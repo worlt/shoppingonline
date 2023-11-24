@@ -93,7 +93,7 @@
   </div>
 
   <div class="fruit_hot" >
-    <div class="hf_title"><span class="ht_l">热卖商品</span><span class="ht_r"><a href="">MORE+</a></span></div>
+    <div class="hf_title"><span class="ht_l">热卖商品</span><span class="ht_r"><a href="<%=request.getContextPath()%>/searchServlet?key=all">MORE+</a></span></div>
     <%
       int i=1;
       for(Merchandise merchandises:hotMerchandise)
