@@ -13,11 +13,6 @@
     <title>用户登录 - 罗友-包罗万象，我们什么都有</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/reg.css">
-    <script>
-        window.onload=function footer_img_non(){
-            document.getElementById("footer_img").style.display="none";
-        }
-    </script>
 </head>
 <body>
 <div class="con">
