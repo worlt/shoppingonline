@@ -40,27 +40,27 @@
     </div>
 </div>
 
-<div class="fruitboxs">
+<div class="merboxs">
     <div class="con">
-        <div class="fhead">
-            <div class="fhr"></div>
+        <div class="mhead">
+            <div class="mhr"></div>
             <div class="ser_more">
-                <div class="fser">热卖专区</div>
-                <div class="fmore"><a href="">查看更多 ></a></div>
+                <div class="mser">热卖专区</div>
+                <div class="mmore"><a href="">查看更多 ></a></div>
             </div>
         </div>
 
     <%
         for(Merchandise merchandise:hotMerchandise)
         {
-            out.print("    <div class=\"fruit_box\">\n" +
-                    "      <div class=\"fruit_img\">\n" +
+            out.print("    <div class=\"mer_box\">\n" +
+                    "      <div class=\"mer_img\">\n" +
                     "        <a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+id+"&mid="+merchandise.getMid()+"\"><img src=\"img/merchandise/"+merchandise.getMid()+"/(1).jpg\" /></a>\n" +
                     "      </div>\n" +
-                    "      <div class=\"fruit_name\">\n" +
+                    "      <div class=\"mer_name\">\n" +
                     "        <a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+id+"&mid="+merchandise.getMid()+"\">"+merchandise.getMname()+"</a>\n" +
                     "      </div>\n" +
-                    "      <div class=\"fruit_mon\">\n" +
+                    "      <div class=\"mer_mon\">\n" +
                     "        "+merchandise.getMprice()+"\n" +
                     "      </div>\n" +
                     "    </div>");

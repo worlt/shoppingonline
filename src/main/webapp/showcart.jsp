@@ -87,6 +87,8 @@
     <input type="button" name="" id="addmon" value="订单结算" />
   </div>
 </div>
+<div class="footer">
 <jsp:include page="footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

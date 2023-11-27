@@ -29,7 +29,7 @@
                         "        </div>");
             else {
                 out.print("      <div class=\"head_right\" >\n" +
-                        "        <div class=\"username\"><a href=\"#\">" + user.getUname() + "</a></div>\n" +
+                        "        <div class=\"username\"><a href=\""+request.getContextPath()+"/userServlet?key=finduser&id="+user.getId()+"\">" + user.getUname() + "</a></div>\n" +
                         "        <div class=\"star\">\n" +
                         "          <div class=\"star_img\">\n" +
                         "          </div>\n" +

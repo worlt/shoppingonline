@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: worlt
+  Date: 2023/11/24
+  Time: 15:26
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page import="beans.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -24,19 +31,6 @@
   <div class="logo">
     <a href="index.jsp"><img src="logo/admin.jpg" title="返回首页" /></a>
   </div>
-  <div class="mean_ul">
-    <div class="mean_li" onclick="sss('u')">用户管理</div>
-    <div class="user_list" id="user_list">
-      <div class="mm"><a href="<%=request.getContextPath()%>/AdminServlet?key=alluser">全部用户</a></div>
-      <div class="mm"><a href="a_adduser.jsp">添加用户</a></div>
-    </div>
-    <div class="mean_li" onclick="sss('f')">商品管理</div>
-    <div class="fruit_list" id="fruit_list">
-      <div class="mm"><a href="<%=request.getContextPath()%>/AdminServlet?key=allmer">库存商品</a></div>
-<%--      <div class="mm"><a href="<%=request.getContextPath()%>/AdminServlet?key=hotfruit">热卖商品</a></div>--%>
-      <div class="mm"><a href="a_addmer.jsp">商品入库</a></div>
-    </div>
-  </div>
 </div>
 
 <div class="gong" id="x3">
@@ -47,7 +41,7 @@
         user3=(User)request.getAttribute("user");
     %>
     <div class="form">
-      <form action="<%=request.getContextPath()%>/AdminServlet?key=upuser&id=<%=user3.getId()%>" method="post">
+      <form action="<%=request.getContextPath()%>/userServlet?key=upuser&id=<%=user3.getId()%>" method="post">
         <div class="add">
           <span class="add_tit">用户名 ：</span>
           <span class="add_text"><input type="text" name="name2" id="name2" value="<%=user3.getUname()%>" /></span>
@@ -79,10 +73,7 @@
     </div>
   </div>
 </div>
-
-
-<%--<div class="gong" id="x4">--%>
-<%--</div>--%>
 </body>
 </html>
+
 

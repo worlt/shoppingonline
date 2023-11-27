@@ -30,7 +30,7 @@
 <body onload="show()">
 <jsp:include page="head.jsp"></jsp:include>
 
-<div class="fruit_info">
+<div class="mer_info">
   <div class="img_box">
     <%
       String cname="show";
@@ -53,12 +53,12 @@
     </div>
   </div>
 
-  <div class="fruit_text">
-    <div class="fname"><%=merchandise.getMname()%></div>
+  <div class="mer_text">
+    <div class="mname"><%=merchandise.getMname()%></div>
     <p>&nbsp;</p>
 <%--    <div class="spec"><input type="radio" checked="checked" name="fnum_radio" value="fnum_radio" /><%=merchandise.getSpec()%></div>--%>
     <div class="up">￥<%=merchandise.getMprice()%></div>
-    <div class="fid">商品编号:<%=merchandise.getMid()%></div>
+    <div class="mid">商品编号:<%=merchandise.getMid()%></div>
     <hr />
 
     <form  method="post" id="fform">
@@ -92,13 +92,13 @@
     <hr />
   </div>
 
-  <div class="fruit_hot" >
+  <div class="mer_hot" >
     <div class="hf_title"><span class="ht_l">热卖商品</span><span class="ht_r"><a href="<%=request.getContextPath()%>/searchServlet?key=all">MORE+</a></span></div>
     <%
       int i=1;
       for(Merchandise merchandises:hotMerchandise)
       {
-        out.print("    <div class=\"hot_fruit\">\n" +
+        out.print("    <div class=\"hot_mer\">\n" +
                 "      <div class=\"hf_img\"><a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+user.getId()+"&mid="+merchandises.getMid()+"\"><img src=\"img/merchandise/"+merchandises.getMid()+"/(1).jpg\" /></a></div>\n" +
                 "      <div class=\"hf_text\">\n" +
                 "        <div class=\"hf_name\"><a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+user.getId()+"&mid="+merchandises.getMid()+"\">"+merchandises.getMname()+"</a></div>\n" +

@@ -124,6 +124,16 @@
 	border-bottom: 1px dashed #33998a;
 }
 
+.balance-mask {
+	position: absolute; /* 绝对定位，覆盖在文本框上方 */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7); /* 半透明的白色遮罩 */
+	pointer-events: none; /* 使遮罩层不响应鼠标事件，从而不影响用户与文本框的交互 */
+}
+
 .add_sublmit{
 	width: 100px;
 	height: 100px;

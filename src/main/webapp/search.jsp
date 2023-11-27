@@ -23,18 +23,18 @@
   %>
 </head>
 <body style="position: relative;">
-  <div class="fruit_info">
-    <div class="fruit_hot" >
+  <div class="mer_info">
+    <div class="mer_hot" >
       <div class="hf_title"><span class="ht_l">热卖商品</span><span class="ht_r"><a href="">MORE+</a></span></div>
 
       <%
         int i=1;
         for(Merchandise merchandises:htoMerchandises)
         {
-          out.print("    <div class=\"hot_fruit\">\n" +
-                  "      <div class=\"hf_img\"><a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+user.getId()+"&fid="+merchandises.getMid()+"\"><img src=\"img/merchandise/"+merchandises.getMid()+"/(1).jpg\" /></a></div>\n" +
+          out.print("    <div class=\"hot_mer\">\n" +
+                  "      <div class=\"hf_img\"><a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+user.getId()+"&mid="+merchandises.getMid()+"\"><img src=\"img/merchandise/"+merchandises.getMid()+"/(1).jpg\" /></a></div>\n" +
                   "      <div c=\"hf_text\">\n" +
-                  "        <div class=\"hf_name\"><a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+user.getId()+"&fid="+merchandises.getMid()+"\">"+merchandises.getMname()+"</a></div>\n" +
+                  "        <div class=\"hf_name\"><a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+user.getId()+"&mid="+merchandises.getMid()+"\">"+merchandises.getMname()+"</a></div>\n" +
                   "        <div class=\"hf_mon\">￥<span>"+merchandises.getMprice()+"</span></div>\n" +
                   "      </div>\n" +
                   "    </div>");
@@ -47,9 +47,9 @@
     </div>
 
     <div class="sel">
-      <div class="selfruits">
-        <ul class="selfruits_ul">
-          <li class="selfruits_li">
+      <div class="selmers">
+        <ul class="selmers_ul">
+          <li class="selmers_li">
             价格：
             <a href="<%=request.getContextPath()%>/searchServlet?key=all" class="selkey sgreen">不限</a>
             <a href="<%=request.getContextPath()%>/searchServlet?key=money&selkey=a" class="selkey sgreen">2000以下</a>
@@ -61,23 +61,23 @@
       </div>
 
 
-      <div class="fruitboxs">
+      <div class="merboxs">
         <%
           if (selMerchandises!=null)
           {
             for(Merchandise Merchandise:selMerchandises)
             {
-              out.print("        <div class=\"fruit_box\">\n" +
-                      "          <div class=\"fruit_img\">\n" +
+              out.print("        <div class=\"mer_box\">\n" +
+                      "          <div class=\"mer_img\">\n" +
                       "            <a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+ user.getId()+"&mid="+Merchandise.getMid()+"\"><img src=\"img/merchandise/"+Merchandise.getMid()+"/(1).jpg\" /></a>\n" +
                       "          </div>\n" +
-                      "          <div class=\"fruit_name\">\n" +
+                      "          <div class=\"mer_name\">\n" +
                       "            <a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+ user.getId()+"&mid="+Merchandise.getMid()+"\">"+Merchandise.getMname()+"</a>\n" +
                       "          </div>\n" +
-//                      "          <div class=\"fruit_spec\">\n" +
+//                      "          <div class=\"mer_spec\">\n" +
 //                      "            "+Merchandise.getInum()+"\n" +
 //                      "          </div>\n" +
-                      "          <div class=\"fruit_up\">\n" +
+                      "          <div class=\"mer_up\">\n" +
                       "            ￥"+Merchandise.getMprice()+"\n" +
                       "          </div>\n" +
 //                      "          <div class=\"flogo\">\n" +

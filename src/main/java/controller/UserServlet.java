@@ -62,4 +62,36 @@ public class UserServlet extends BaseServlet {
             return "forward:/login.jsp";
         }
     }
+
+
+    //修改个人信息和充值
+    public String finduser(HttpServletRequest request, HttpServletResponse response){
+        //获取参数
+        String uidStr = request.getParameter("id");
+        int uid = Integer.parseInt(uidStr);
+        //调用业务逻辑层
+        User user = userService.findById(uid);
+        request.setAttribute("user",user);
+        return "forward:/user.jsp";
+    }
+
+    //更新用户
+    public String upuser(HttpServletRequest request, HttpServletResponse response){
+        //获取参数
+        String name2 = request.getParameter("name2");
+        String phone2 = request.getParameter("phone2");
+        String pwd2 = request.getParameter("pwd2");
+        String balanceStr = request.getParameter("balance2");
+        double balance2 = Double.parseDouble(balanceStr);
+        String address2 = request.getParameter("address2");
+
+        String uidStr = request.getParameter("id");
+        int uid = Integer.parseInt(uidStr);
+        User user = new User(uid, name2, phone2, pwd2, balance2, address2);
+        boolean update = userService.update(user);
+        if (update){
+            return "forward:/user.jsp";
+        }
+        return null;
+    }
 }
