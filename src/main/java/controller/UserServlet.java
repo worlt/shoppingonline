@@ -90,6 +90,7 @@ public class UserServlet extends BaseServlet {
         User user = new User(uid, name2, phone2, pwd2, balance2, address2);
         boolean update = userService.update(user);
         if (update){
+            finduser(request,response);
             return "forward:/user.jsp";
         }
         return null;
