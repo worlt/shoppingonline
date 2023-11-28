@@ -72,6 +72,8 @@
         </div>
     </div>
 </div>
-<jsp:include page="footer.jsp"></jsp:include>
+<div style="text-align: center;position: fixed;bottom: 0;padding: 10px;width: 100%;">
+    <jsp:include page="footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

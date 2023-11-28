@@ -5,7 +5,7 @@
   <link rel="stylesheet"  type="text/css" href="css/footer.css"/>
 </head>
 <body>
-  <div class="footer" id="footer_img">
+  <div class="footer" id="footer_img" >
     <ul class="foot_ul">
       <li><img src="img/footer/foot_a(1).jpg" alt="" /></li>
       <li><img src="img/footer/foot_a(2).jpg" alt="" /></li>

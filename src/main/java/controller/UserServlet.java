@@ -1,14 +1,14 @@
 package controller;
 
 import beans.User;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import service.UserService;
 import service.UserServiceImpl;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/userServlet")
@@ -90,6 +90,7 @@ public class UserServlet extends BaseServlet {
         User user = new User(uid, name2, phone2, pwd2, balance2, address2);
         boolean update = userService.update(user);
         if (update){
+            finduser(request,response);
             return "forward:/user.jsp";
         }
         return null;
