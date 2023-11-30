@@ -134,7 +134,7 @@
 	pointer-events: none; /* 使遮罩层不响应鼠标事件，从而不影响用户与文本框的交互 */
 }
 
-.add_sublmit{
+.add_sublmit {
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
@@ -142,9 +142,14 @@
 	border: 1px dashed #33998a;
 	border-radius: 50px;
 	position: absolute;
-	right: 200px;
-	top: 90px;
+	right: 20px; /* 调整按钮距离右侧的位置 */
+	top: 90px; /* 调整按钮距离顶部的位置 */
 }
+
+.add_sublmit.add_sublmit-recharge {
+	top: 210px; /* 调整第二个按钮距离顶部的位置 */
+}
+
 
 .add_sublmit input{
 	width: 90px;
@@ -176,6 +181,9 @@
 input.long{
 	width: 500px;
 }
+
+
+
 
 
 

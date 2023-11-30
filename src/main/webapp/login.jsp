@@ -1,9 +1,9 @@
 <%--
-Created by IntelliJ IDEA.
-beans.User: worlt
-Date: 2023/11/14
-Time: 22:20
-To change this template use File | Settings | File Templates.
+  Created by IntelliJ IDEA.
+  beans.User: worlt
+  Date: 2023/11/14
+  Time: 22:20
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -19,7 +19,7 @@ To change this template use File | Settings | File Templates.
     <div class="box">
         <div class="head">
             <a href="index.jsp">
-                <img src="logo/reglogo.png" title="返回首页"/>
+                <img src="logo/reglogo.png" title="返回首页" />
             </a>
         </div>
 
@@ -28,22 +28,18 @@ To change this template use File | Settings | File Templates.
                 <span class="h01">用户登录</span>
                 <div class="xhr"></div>
             </div>
-            <%--
-            <form action=<%=request.getContextPath()%>/userServlet?key=login method="post">--%>
-            <form action=<%=request.getContextPath()%>/userServlet?key=login method="post">
-                <%--
-                <form action=<%=request.getContextPath()%>/loginServlet? method="post">--%>
+            <%--          <form action=<%=request.getContextPath()%>/userServlet?key=login  method="post">--%>
+            <form action=<%=request.getContextPath()%>/userServlet?key=login  method="post">
+                <%--        <form action=<%=request.getContextPath()%>/loginServlet? method="post">--%>
                 <div class="text_box">
-                    <div class="main">
-                        <div class="name">用户名或手机：</div>
-                        <input type="text" name="str" id="str" value=""/>
+                    <div class="main"><div class="name">用户名或手机：</div>
+                        <input type="text" name="str" id="str" value="" />
                     </div>
-                    <div class="main">
-                        <div class="name">密码：</div>
-                        <input type="password" name="pwd" id="pwd" value=""/>
+                    <div class="main"><div class="name">密码：</div>
+                        <input type="password" name="pwd" id="pwd" value="" />
                     </div>
                     <div class="xbutton">
-                        <input type="submit" name="login" id="login" value="登录"/>
+                        <input type="submit" name="login" id="login" value="登录" />
                     </div>
                     <div class="fpwd">
                         <a href="#">忘记密码 >></a>
@@ -63,8 +59,10 @@ To change this template use File | Settings | File Templates.
         </div>
     </div>
 </div>
-<div style="text-align: center;position: fixed;bottom: 0;padding: 10px;width: 100%;">
-    <jsp:include page="footer.jsp"></jsp:include>
+<div class="footer">
+    <div style="text-align: center;position: fixed;bottom: 0;padding: 10px;width: 100%;">
+        <jsp:include page="footer.jsp"></jsp:include>
+    </div>
 </div>
 </body>
 </html>

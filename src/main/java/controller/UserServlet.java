@@ -95,4 +95,26 @@ public class UserServlet extends BaseServlet {
         }
         return null;
     }
+
+    // 充值
+    public String recharge(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 获取参数
+        String amountStr = request.getParameter("amount");
+        double amount = Double.parseDouble(amountStr);
+
+        String uidStr = request.getParameter("id");
+        int uid = Integer.parseInt(uidStr);
+
+        // 调用业务逻辑层进行充值处理
+        boolean recharge = userService.recharge(uid, amount);
+        if (recharge) {
+            // 充值成功
+            response.getWriter().write("{\"success\": true}");
+        } else {
+            // 充值失败
+            response.getWriter().write("{\"success\": false}");
+        }
+
+        return null;
+    }
 }

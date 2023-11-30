@@ -24,5 +24,7 @@ public interface UserService {
 
     public boolean del(int id);
 
+    boolean recharge(int uid, double amount);
+
 
 }

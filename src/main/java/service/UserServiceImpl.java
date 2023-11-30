@@ -52,4 +52,15 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    public boolean recharge(int uid, double amount) {
+        User user = userDao.findById(uid);
+        if (user != null) {
+            user.setBalance(user.getBalance() + amount);
+            int update = userDao.update(user);
+            return update > 0;
+        }
+        return false;
+    }
+
 }

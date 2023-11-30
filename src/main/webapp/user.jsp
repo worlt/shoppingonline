@@ -59,16 +59,21 @@
 
         <div class="add">
           <span class="add_tit">余额 ：</span>
-          <span class="add_text"><input type="text" name="balance2" id="balance2" value="<%=user3.getBalance()%>" /></span>
+          <span class="add_text"><input type="text" name="balance2" id="balance2" value="<%=user3.getBalance()%>" readonly/></span>
         </div>
 
         <div class="add">
           <span class="add_tit">地址 ：</span>
           <span class="add_text"><input type="text" name="address2" id="address2" value="<%=user3.getAddress()%>" /></span>
         </div>
+        <div class="add_sublmit add_sublmit-recharge">
+          <input type="button" value="充值" onclick="recharge()"/>
+        </div>
         <div class="add_sublmit">
           <input type="submit" value="保存"/>
         </div>
+
+
       </form>
     </div>
   </div>
