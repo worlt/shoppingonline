@@ -2,15 +2,15 @@ package controller;
 
 import beans.Cart;
 import beans.Merchandise;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import service.CartService;
 import service.CartServiceImpl;
 import service.MerchandiseService;
 import service.MerchandiseServiceImpl;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -56,8 +56,5 @@ public class MerchandiseServlet extends BaseServlet{
         List<Merchandise> merchandises = merchandiseService.findHot();
         request.setAttribute("merchandises",merchandises);
     }
-
-
-
 
 }
