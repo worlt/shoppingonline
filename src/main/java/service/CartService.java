@@ -27,4 +27,7 @@ public interface CartService {
     //显示列表根据boolean值来确定显示购物车列表还是关注列表
     public List<Merchandise> show(int uid, boolean flag);
 
+    //结算
+    public boolean checkout(int uid,double money);
+
 }

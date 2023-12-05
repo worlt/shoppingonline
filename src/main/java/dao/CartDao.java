@@ -25,5 +25,4 @@ public interface CartDao {
     //根据uid查询购物车列表
     public List<Cart> findCartByUid(int uid);
 
-
 }

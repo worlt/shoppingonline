@@ -3,10 +3,7 @@ package controller;
 import beans.Cart;
 import beans.Merchandise;
 import beans.User;
-import service.CartService;
-import service.CartServiceImpl;
-import service.MerchandiseService;
-import service.MerchandiseServiceImpl;
+import service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet("/cartServlet")
-public class  CartServlet extends BaseServlet {
+public class CartServlet extends BaseServlet {
     private CartService cartService = new CartServiceImpl();
 
     //添加购物车或者关注列表
@@ -107,7 +104,7 @@ public class  CartServlet extends BaseServlet {
 
 
     //删除既没有加入购物车，也没有关注的数据
-    public String del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public String del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取参数
         String uidStr = request.getParameter("id");
         String midStr = request.getParameter("mid");
@@ -118,67 +115,57 @@ public class  CartServlet extends BaseServlet {
         cart.setUid(uid);
         cart.setMid(mid);
         //调用业务逻辑层
-        if (uid!=0){
+        if (uid != 0) {
             //从数据库查询存在记录
             Cart returnCart = cartService.find(uid, mid);
-            if ("cart".equals(str)){
+            if ("cart".equals(str)) {
                 cart.setIsCart(false);
                 cart.setIsStar(returnCart.isStar());
-            }else if ("star".equals(str)){
+            } else if ("star".equals(str)) {
                 cart.setIsStar(false);
                 cart.setIsCart(returnCart.isCart());
             }
 
-            if (cart.isCart() || cart.isStar()){//没有加入购物车或关注，更新数据库
-                cartService.update(uid,cart);
-            }else {
-                cartService.del(uid,mid);
+            if (cart.isCart() || cart.isStar()) {//没有加入购物车或关注，更新数据库
+                cartService.update(uid, cart);
+            } else {
+                cartService.del(uid, mid);
             }
         }
 
-        if ("cart".equals(str)){//购物车列表删除
-            return "forward:/cartServlet?key=show&id="+uid+"&boob=cart";
+        if ("cart".equals(str)) {//购物车列表删除
+            return "forward:/cartServlet?key=show&id=" + uid + "&boob=cart";
 
-        }else {
-            return "forward:/cartServlet?key=show&id="+uid+"&boob=star";
+        } else {
+            return "forward:/cartServlet?key=show&id=" + uid + "&boob=star";
         }
     }
 
 
-//    // 结算
-//    public String checkout(HttpServletRequest request, HttpServletResponse response) {
-//        // 获取用户ID
-//        String uidStr = request.getParameter("id");
-//        int uid = Integer.parseInt(uidStr);
-//        MerchandiseService merchandiseService = new MerchandiseServiceImpl();
-//        // 获取购物车商品和数量
-//        Map<Merchandise, Integer> cart = new HashMap<>();
-//        for(String key : request.getParameterMap().keySet()) {
-//            if(key.startsWith("quantity")) {
-//                int mid = Integer.parseInt(key.substring(8)); // 提取商品ID
-//                int quantity = Integer.parseInt(request.getParameter(key)); // 获取数量
-//                Merchandise merchandise = merchandiseService.findById(mid); // 查找商品
-//                cart.put(merchandise, quantity);
-//            }
-//        }
-//
-//        // 处理结算逻辑（示例）
-//        // 注意：这里应该有完整的业务逻辑，包括库存检查、价格计算、生成订单等步骤
-//        boolean success = someCheckoutService.processCheckout(cart, uid);
-//
-//        if (success) {
-//            // 结算成功，跳转到成功页面或订单详情页
-//            return "redirect:/checkout_success.jsp";
-//        } else {
-//            // 结算失败，返回购物车页面并显示错误信息
-//            request.setAttribute("message", "结算失败，请重试！");
-//            return "forward:/showcart.jsp";
-//        }
-//    }
+    // 结算
+    public String checkout(HttpServletRequest request, HttpServletResponse response) {
+        UserServlet userServlet = new UserServlet();
+        //获取参数
+        String uidStr = request.getParameter("id");
+        String moneyStr = request.getParameter("totalAmount");
+        int uid = Integer.parseInt(uidStr);
+        double money = Double.parseDouble(moneyStr);
 
-
-
-
+        UserServiceImpl userService = new UserServiceImpl();
+        User user = userService.findById(uid);
+        boolean checkout = cartService.checkout(uid, money);
+        if (checkout) {
+            // 结算成功，跳转到成功页面或订单详情页
+            List<Merchandise> merchandises = cartService.show(uid,true);
+            request.setAttribute("merchandises", merchandises);
+            request.setAttribute("message", "购买成功");
+            return "redirect:/showcart.jsp";
+        } else {
+            // 结算失败，返回购物车页面并显示错误信息
+            request.setAttribute("message", "结算失败,请查看余额是否充足，请重试！");
+            return "forward:/showcart.jsp";
+        }
+    }
 
 
 }

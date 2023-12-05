@@ -2,15 +2,20 @@ package service;
 
 import beans.Cart;
 import beans.Merchandise;
+import beans.User;
 import dao.CartDao;
 import dao.MerchandiseDao;
+import dao.UserDao;
 import dao.impl.CartDaoImpl;
 import dao.impl.MerchandiseDaoImpl;
+import dao.impl.UserDaoImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartServiceImpl implements CartService {
+    private UserDao userDao = new UserDaoImpl();
+
     private CartDao cartDao = new CartDaoImpl();
     private MerchandiseDao merchandiseDao = new MerchandiseDaoImpl();
 
@@ -71,6 +76,17 @@ public class CartServiceImpl implements CartService {
             }
         }
         return merchandises;
+    }
+
+    @Override
+    public boolean checkout(int uid, double money) {
+        User user = userDao.findById(uid);
+        double balance = user.getBalance() - money;
+        if (balance >= 0){
+            int update = userDao.update(user);
+            return update > 0;
+        }
+        return false;
     }
 }
 

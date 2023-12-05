@@ -45,7 +45,7 @@
             <div id="st6">操作</div>
         </div>
         <form action="<%=request.getContextPath()%>/cartServlet?key=checkout&id=<%=user.getId()%>" method="post">
-                <%
+    <%
       for(Merchandise merchandise:merchandises)
       {
         out.print("    <div class=\"shop\">\n" +
@@ -76,23 +76,17 @@
                 "    </div>");
       }
     %>
-
             <div class="shop_footer">
                 &nbsp;
             </div>
-    </div>
 
     <div class="sum_mon">
-        <div class="money">商品总金额：<span id="money">￥68 </span></div>
+        <div class="money">商品总金额：<span id="money">  </span></div>
         <br/>
-        <input type="button" name="" id="addmon" value="订单结算"/>
+        <input type="submit" id="addmon" value="订单结算"/>
     </div>
     </form>
 </div>
-<div class="footer">
-    <div style="text-align: center;position: fixed;bottom: 0;padding: 10px;width: 100%;">
-        <jsp:include page="footer.jsp"></jsp:include>
-    </div>
 </div>
 </body>
 </html>
