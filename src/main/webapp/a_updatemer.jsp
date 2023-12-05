@@ -60,11 +60,6 @@
             <span class="add_text"><input type="text" name="mname2" id="mname2" value="<%=merchandise.getMname()%>" /></span>
           </div>
 
-          <%--        <div class="add">--%>
-          <%--          <span class="add_tit">规格 ：</span>--%>
-          <%--          <span class="add_text"><input type="text" name="spec1" id="spec1" value="" /></span>--%>
-          <%--        </div>--%>
-
           <div class="add">
             <span class="add_tit">单价 ：</span>
             <span class="add_text"><input type="text" name="mprice2" id="mprice2" value="<%=merchandise.getMprice()%>" /></span>

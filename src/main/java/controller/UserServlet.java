@@ -38,25 +38,25 @@ public class UserServlet extends BaseServlet {
 
 
     //注册
-    public String register(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+    public String register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取参数
         String name = request.getParameter("uname");
         String phone = request.getParameter("phone");
         String pwd1 = request.getParameter("pwd1");
 
         //封装实体类
-        User user = new User(name,phone,pwd1);
+        User user = new User(name, phone, pwd1);
 
         //调用业务逻辑实现
         User loginUser = userService.add(user);
-        if (loginUser != null){
+        if (loginUser != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("user",loginUser);
+            session.setAttribute("user", loginUser);
             //跳回首页
 //            response.sendRedirect(request.getContextPath() + "/index.jsp");
             return "redirect:/index.jsp";
 
-        }else {
+        } else {
             //注册页面不变
 //            request.getRequestDispatcher("/login.jsp").forward(request,response);
             return "forward:/login.jsp";
@@ -65,18 +65,18 @@ public class UserServlet extends BaseServlet {
 
 
     //修改个人信息和充值
-    public String finduser(HttpServletRequest request, HttpServletResponse response){
+    public String finduser(HttpServletRequest request, HttpServletResponse response) {
         //获取参数
         String uidStr = request.getParameter("id");
         int uid = Integer.parseInt(uidStr);
         //调用业务逻辑层
         User user = userService.findById(uid);
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
         return "forward:/user.jsp";
     }
 
     //更新用户
-    public String upuser(HttpServletRequest request, HttpServletResponse response){
+    public String upuser(HttpServletRequest request, HttpServletResponse response) {
         //获取参数
         String name2 = request.getParameter("name2");
         String phone2 = request.getParameter("phone2");
@@ -89,17 +89,18 @@ public class UserServlet extends BaseServlet {
         int uid = Integer.parseInt(uidStr);
         User user = new User(uid, name2, phone2, pwd2, balance2, address2);
         boolean update = userService.update(user);
-        if (update){
-            finduser(request,response);
+        if (update) {
+            finduser(request, response);
             return "forward:/user.jsp";
         }
         return null;
     }
 
+
     // 充值
     public String recharge(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 获取参数
-        String amountStr = request.getParameter("amount");
+        String amountStr = request.getParameter("rechargeAmount");
         double amount = Double.parseDouble(amountStr);
 
         String uidStr = request.getParameter("id");
@@ -109,7 +110,8 @@ public class UserServlet extends BaseServlet {
         boolean recharge = userService.recharge(uid, amount);
         if (recharge) {
             // 充值成功
-            response.getWriter().write("{\"success\": true}");
+            finduser(request, response);
+            return "forward:/user.jsp";
         } else {
             // 充值失败
             response.getWriter().write("{\"success\": false}");
@@ -117,4 +119,6 @@ public class UserServlet extends BaseServlet {
 
         return null;
     }
+
+
 }

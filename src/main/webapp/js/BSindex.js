@@ -32,31 +32,3 @@ function ox(s) {
     }
 }
 
-
-function recharge() {
-    var amount = prompt("请输入充值金额：");
-    var uid = document.getElementById("id").value;
-
-// 发送AJAX请求到后端进行充值处理
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/shoppingonline_war_exploded/userServlet?key=recharge&id=" + uid, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.success) {
-                alert("充值成功！");
-                window.location.reload(); // 刷新页面
-            } else {
-                alert("充值失败，请稍后重试！");
-            }
-        }
-    };
-    xhr.onerror = function () {
-        alert("请求出错，请稍后重试！");
-    };
-    xhr.send("amount=" + encodeURIComponent(amount) + "&id=" + uid);
-}
-
-
-

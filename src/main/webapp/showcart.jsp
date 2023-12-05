@@ -6,46 +6,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>购物车</title>
-  <link rel="stylesheet" href="css/showcart.css" />
-  <link rel="stylesheet" type="text/css" href="css/main.css"/>
-  <script src="js/imgs.js" type="text/javascript" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/showcart.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script src="js/imgs.js" type="text/javascript" charset="utf-8"></script>
 
-  <script>
-    window.onload=function footer_img_non(){
-      document.getElementById("footer_img").style.display="none";
-    }
-  </script>
-  <%
-      List<Merchandise> merchandises=(List<Merchandise>)request.getAttribute("merchandises");
-      User user=(User)session.getAttribute("user");
-  %>
+    <script>
+        window.onload = function footer_img_non() {
+            document.getElementById("footer_img").style.display = "none";
+        }
+    </script>
+    <%
+        List<Merchandise> merchandises = (List<Merchandise>) request.getAttribute("merchandises");
+        User user = (User) session.getAttribute("user");
+    %>
 </head>
 <body onload="money()">
 <div class="con">
-  <div class="head">
-    <a href="index.jsp">
-      <img src="logo/reglogo.png" title="返回首页" />
-    </a>
-  </div>
-  <div class="shop_box">
-    <div class="head_text_box">
+    <div class="head">
+        <a href="index.jsp">
+            <img src="logo/reglogo.png" title="返回首页"/>
+        </a>
+    </div>
+    <div class="shop_box">
+        <div class="head_text_box">
 					<span id="head_text">
 						我的购物车
 					</span>
-    </div>
+        </div>
 
-    <div class="shop_title">
-      <div id="st1">商品</div>
-<%--      <div id="st2">规格</div>--%>
-      <div id="st3">单价</div>
-      <div id="st4">数量</div>
-      <div id="st5">小计</div>
-      <div id="st6">操作</div>
-    </div>
-
-    <%
+        <div class="shop_title">
+            <div id="st1">商品</div>
+            <%--      <div id="st2">规格</div>--%>
+            <div id="st3">单价</div>
+            <div id="st4">数量</div>
+            <div id="st5">小计</div>
+            <div id="st6">操作</div>
+        </div>
+        <form action="<%=request.getContextPath()%>/cartServlet?key=checkout&id=<%=user.getId()%>" method="post">
+                <%
       for(Merchandise merchandise:merchandises)
       {
         out.print("    <div class=\"shop\">\n" +
@@ -77,15 +77,17 @@
       }
     %>
 
-    <div class="shop_footer">
-      &nbsp;
+            <div class="shop_footer">
+                &nbsp;
+            </div>
     </div>
-  </div>
 
-  <div class="sum_mon">
-    <div class="money">商品总金额：<span id="money">￥68 </span></div><br />
-    <input type="button" name="" id="addmon" value="订单结算" />
-  </div>
+    <div class="sum_mon">
+        <div class="money">商品总金额：<span id="money">￥68 </span></div>
+        <br/>
+        <input type="button" name="" id="addmon" value="订单结算"/>
+    </div>
+    </form>
 </div>
 <div class="footer">
     <div style="text-align: center;position: fixed;bottom: 0;padding: 10px;width: 100%;">

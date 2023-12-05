@@ -5,6 +5,8 @@ import beans.Merchandise;
 import beans.User;
 import service.CartService;
 import service.CartServiceImpl;
+import service.MerchandiseService;
+import service.MerchandiseServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/cartServlet")
 public class  CartServlet extends BaseServlet {
@@ -138,9 +142,43 @@ public class  CartServlet extends BaseServlet {
         }else {
             return "forward:/cartServlet?key=show&id="+uid+"&boob=star";
         }
-
-
     }
+
+
+//    // 结算
+//    public String checkout(HttpServletRequest request, HttpServletResponse response) {
+//        // 获取用户ID
+//        String uidStr = request.getParameter("id");
+//        int uid = Integer.parseInt(uidStr);
+//        MerchandiseService merchandiseService = new MerchandiseServiceImpl();
+//        // 获取购物车商品和数量
+//        Map<Merchandise, Integer> cart = new HashMap<>();
+//        for(String key : request.getParameterMap().keySet()) {
+//            if(key.startsWith("quantity")) {
+//                int mid = Integer.parseInt(key.substring(8)); // 提取商品ID
+//                int quantity = Integer.parseInt(request.getParameter(key)); // 获取数量
+//                Merchandise merchandise = merchandiseService.findById(mid); // 查找商品
+//                cart.put(merchandise, quantity);
+//            }
+//        }
+//
+//        // 处理结算逻辑（示例）
+//        // 注意：这里应该有完整的业务逻辑，包括库存检查、价格计算、生成订单等步骤
+//        boolean success = someCheckoutService.processCheckout(cart, uid);
+//
+//        if (success) {
+//            // 结算成功，跳转到成功页面或订单详情页
+//            return "redirect:/checkout_success.jsp";
+//        } else {
+//            // 结算失败，返回购物车页面并显示错误信息
+//            request.setAttribute("message", "结算失败，请重试！");
+//            return "forward:/showcart.jsp";
+//        }
+//    }
+
+
+
+
 
 
 }
