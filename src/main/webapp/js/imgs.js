@@ -1,143 +1,131 @@
 var st;
 
-function qimg(){
+function qimg() {
 
-	for(var i=0;i<5;i++)
-	{
-		var s=document.getElementById("p"+i);
+    for (var i = 0; i < 5; i++) {
+        var s = document.getElementById("p" + i);
 
-		if(s.className=="show")
-		{
-			s.className="non";
-			document.getElementById("l"+i).style.backgroundColor="#444444";
+        if (s.className == "show") {
+            s.className = "non";
+            document.getElementById("l" + i).style.backgroundColor = "#444444";
 
-			i=(i+1)%5;
-			document.getElementById("l"+i).style.backgroundColor="#33998a";
-			document.getElementById("p"+i).className="show";
-			break;
-		}
-	}
+            i = (i + 1) % 5;
+            document.getElementById("l" + i).style.backgroundColor = "#33998a";
+            document.getElementById("p" + i).className = "show";
+            break;
+        }
+    }
 }
 
-function fimg(){
-	st=setInterval("qimg()",5000);
+function fimg() {
+    st = setInterval("qimg()", 5000);
 }
 
-function simg(n){
-	
-	window.clearInterval(st);
-	
-	var s=parseInt(n)-1;
+function simg(n) {
 
-	document.getElementById("p"+s).className="show";
-	document.getElementById("l"+s).style.backgroundColor="#33998a";
-	
-	var i=4;
-	
-	while(i--)
-	{
-		s=(s+1)%5;
-		document.getElementById("p"+s).className="non";
-		document.getElementById("l"+s).style.backgroundColor="#444444";
-	}
+    window.clearInterval(st);
+
+    var s = parseInt(n) - 1;
+
+    document.getElementById("p" + s).className = "show";
+    document.getElementById("l" + s).style.backgroundColor = "#33998a";
+
+    var i = 4;
+
+    while (i--) {
+        s = (s + 1) % 5;
+        document.getElementById("p" + s).className = "non";
+        document.getElementById("l" + s).style.backgroundColor = "#444444";
+    }
 }
 
-function himg(n){
+function himg(n) {
 
-	var s=parseInt(n.charAt(1));
+    var s = parseInt(n.charAt(1));
 
-	document.getElementById("p"+s).className="show";
+    document.getElementById("p" + s).className = "show";
 
-	var i=2;
+    var i = 2;
 
-	while(i--)
-	{
-		s=(s+1)%3;
-		document.getElementById("p"+s).className="non";
-	}
+    while (i--) {
+        s = (s + 1) % 3;
+        document.getElementById("p" + s).className = "non";
+    }
 }
 
-function number(s,mid){
-	var num=document.getElementById("num"+mid);
+function number(s, mid) {
+    var num = document.getElementById("num" + mid);
 
-	if(s=="0")
-	{
-		num.innerText=parseInt(num.innerText)+1;
-	}
-	else if(s=="1")
-	{
-		var k=parseInt(num.innerText)-1;
-
-		num.innerText=k<1?1:k;
-	}
+    if (s == "0") {
+        num.innerText = parseInt(num.innerText) + 1;
+    } else if (s == "1") {
+        var k = parseInt(num.innerText) - 1;
+        num.innerText = k < 1 ? 1 : k;
+    }
 }
 
-function sum(mid)
-{
-	var up=parseFloat(document.getElementById("up"+mid).innerText);
-	var sum=document.getElementById("sum"+mid);
-	var num=parseFloat(document.getElementById("num"+mid).innerText);
-	var cen=up*num;
-	sum.innerText=cen;
+function sum(mid) {
+    var up = parseFloat(document.getElementById("up" + mid).innerText);
+    var sum = document.getElementById("sum" + mid);
+    var num = parseFloat(document.getElementById("num" + mid).innerText);
+    var cen = up * num;
+    sum.innerText = cen;
+    document.getElementById("num").innerText = num;
+
 }
 
-function money()
-{
-	var sums=document.getElementsByClassName("fsum");
-	var num=0;
-	for(var i=0;i<sums.length;i++)
-	{
-		num+=parseInt(sums[i].innerText);
-	}
-
-	document.getElementById("money").innerText=num;
+function money() {
+    var sums = document.getElementsByClassName("f");
+    var num = 0;
+    for (var i = 0; i < sums.length; i++) {
+        num += parseInt(sums[i].innerText);
+    }
+    document.getElementById("money").innerText = num;
 }
-function show()
-{
-	var cart=document.getElementById("cart");
 
-	if(cart.value=="已加入购物车")
-	{
-		cart.style.backgroundColor="#CCC";
-		cart.style.cursor="auto";
-	}
+function show() {
+    var cart = document.getElementById("cart");
 
-	var star=document.getElementById("star");
+    if (cart.value == "已加入购物车") {
+        cart.style.backgroundColor = "#CCC";
+        cart.style.cursor = "auto";
+    }
 
-	if(star.value=="已关注")
-	{
-		star.style.backgroundColor="#CCC";
-		star.style.color="#FFF";
-		star.style.border="none";
-		star.style.cursor="auto";
-	}
+    var star = document.getElementById("star");
+
+    if (star.value == "已关注") {
+        star.style.backgroundColor = "#CCC";
+        star.style.color = "#FFF";
+        star.style.border = "none";
+        star.style.cursor = "auto";
+    }
 
 }
 
 function addCart(idd, midd) {
-	var id = parseInt(idd);
-	var mid = parseInt(midd);
-	var add = document.getElementById("cart");
-	var f = document.getElementById("fform");
-	if (add.value == "加入购物车") {
-		f.action = "/shoppingonline_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=cart";
-		f.submit();
-	} else {
-		alert("当前商品已加入购物车!");
-	}
+    var id = parseInt(idd);
+    var mid = parseInt(midd);
+    var add = document.getElementById("cart");
+    var f = document.getElementById("fform");
+    if (add.value == "加入购物车") {
+        f.action = "/shoppingonline_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=cart";
+        f.submit();
+    } else {
+        alert("当前商品已加入购物车!");
+    }
 }
 
 function addStar(idd, midd) {
-	var id = parseInt(idd);
-	var mid = parseInt(midd);
-	var add = document.getElementById("star");
-	var f = document.getElementById("fform");
-	if (add.value == "关注商品") {
-		f.action = "/shoppingonline_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=star";
-		f.submit();
-	} else {
-		alert("当前商品已关注!");
-	}
+    var id = parseInt(idd);
+    var mid = parseInt(midd);
+    var add = document.getElementById("star");
+    var f = document.getElementById("fform");
+    if (add.value == "关注商品") {
+        f.action = "/shoppingonline_war_exploded/cartServlet?key=add&id=" + id + "&mid=" + mid + "&str=star";
+        f.submit();
+    } else {
+        alert("当前商品已关注!");
+    }
 }
 
 

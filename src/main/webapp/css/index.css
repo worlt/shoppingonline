@@ -21,7 +21,7 @@ ul.imgul li {float: left;width: 20px;height: 20px;line-height: 20px;background-c
 .mser{width: 4em;height:23px;line-height: 23px;float: left;font-size: 18px;color: #33998a;}
 .mmore{width: 6em;height:23px;line-height: 23px;float: right;}
 
-.mer_box{width: 200px;height: 300px;padding: 0 10px;float:left}
+.mer_box{width: 250px;height: 300px;padding: 0 10px;float:left}
 .mer_img{width: 200px;height:200px;}
 .mer_img img{width: 200px;height: 200px;}
 .mer_name{width: 100%;height:30px;color: #666666;font-size: 20px;line-height: 30px;}

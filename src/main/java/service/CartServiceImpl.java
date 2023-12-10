@@ -83,10 +83,17 @@ public class CartServiceImpl implements CartService {
         User user = userDao.findById(uid);
         double balance = user.getBalance() - money;
         if (balance >= 0){
+            // 更新用户余额
+            user.setBalance(balance);
             int update = userDao.update(user);
             return update > 0;
         }
         return false;
     }
+
+    public int delAll(int uid){
+        return cartDao.delAll(uid);
+    }
+
 }
 

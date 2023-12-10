@@ -7,6 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="logo/favicon.ico">
     <title>购物车</title>
     <link rel="stylesheet" href="css/showcart.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -21,6 +22,7 @@
         List<Merchandise> merchandises = (List<Merchandise>) request.getAttribute("merchandises");
         User user = (User) session.getAttribute("user");
     %>
+
 </head>
 <body onload="money()">
 <div class="con">
@@ -38,13 +40,13 @@
 
         <div class="shop_title">
             <div id="st1">商品</div>
-            <%--      <div id="st2">规格</div>--%>
             <div id="st3">单价</div>
             <div id="st4">数量</div>
             <div id="st5">小计</div>
             <div id="st6">操作</div>
         </div>
-        <form action="<%=request.getContextPath()%>/cartServlet?key=checkout&id=<%=user.getId()%>" method="post">
+        <form action="<%=request.getContextPath()%>/orderServlet?key=add&id=<%=user.getId()%>" method="post">
+<%--        <form action="<%=request.getContextPath()%>/cartServlet" method="post">--%>
     <%
       for(Merchandise merchandise:merchandises)
       {
@@ -54,10 +56,6 @@
                 "        <div class=\"s1_text\"><a href=\"/merchandiseServlet?key=info&id="+user.getId()+"&mid="+merchandise.getMid()+"\">"+merchandise.getMid()+"</a></div>\n" +
                 "      </div>\n" +
                 "\n" +
-//                "      <div class=\"s2\">\n" +
-//                "        "+fruit.getSpec()+"\n" +
-//                "      </div>\n" +
-//                "\n" +
                 "      <div class=\"s3\">\n" +
                 "        ￥<span id=\"up"+merchandise.getMid()+"\">"+merchandise.getMprice()+"</span>\n" +
                 "      </div>\n" +
@@ -67,7 +65,7 @@
                 "      </div>\n" +
                 "\n" +
                 "      <div class=\"s5\">\n" +
-                "        ￥<span id=\"sum"+merchandise.getMid()+"\" class=\"fsum\">"+merchandise.getMprice()+"</span>\n" +
+                "        ￥<span id=\"sum"+merchandise.getMid()+"\" class=\"f\">"+merchandise.getMprice()+"</span>\n" +
                 "      </div>\n" +
                 "\n" +
                 "      <div class=\"s6\">\n" +
@@ -76,17 +74,19 @@
                 "    </div>");
       }
     %>
+
             <div class="shop_footer">
                 &nbsp;
             </div>
 
     <div class="sum_mon">
-        <div class="money">商品总金额：<span id="money">  </span></div>
+        <div class="money">商品总金额：<span id="money"></span> </div>
         <br/>
-        <input type="submit" id="addmon" value="订单结算"/>
+        <button type="submit" id="addmon" onclick="window.open('recharge.jsp','_blank','width=200px;height=200px')">点击进行订单结算</button>
     </div>
     </form>
 </div>
 </div>
+
 </body>
 </html>

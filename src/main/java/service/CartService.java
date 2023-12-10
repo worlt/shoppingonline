@@ -30,4 +30,6 @@ public interface CartService {
     //结算
     public boolean checkout(int uid,double money);
 
+    public int delAll(int uid);
+
 }

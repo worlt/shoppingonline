@@ -45,15 +45,16 @@
 .g a,.mm a{color: #33998a;}
 
 .gong{
-	width: 85%;
-	min-height:100%;
+	width: 90%;
+	min-height:auto;
 	position: fixed;
 	right: 0px;
+	/*overflow-y: scroll;*/
 }
 
 .con{
 	width: 80%;
-	height: 670px;
+	height: auto;
 	margin: 0 auto;
 
 }

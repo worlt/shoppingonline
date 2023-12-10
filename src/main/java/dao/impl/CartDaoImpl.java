@@ -83,4 +83,16 @@ public class CartDaoImpl implements CartDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public int delAll(int uid) {
+        String sql = "UPDATE shop SET isCart = 0 WHERE uid = ?";
+        Object[] params = {uid};
+        try {
+            int del = queryRunner.update(sql, params);
+            return del;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

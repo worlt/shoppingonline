@@ -8,6 +8,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+    <link rel="shortcut icon" href="logo/favicon.ico">
   <title>我的关注</title>
   <link rel="stylesheet" href="css/showcart.css" />
   <link rel="stylesheet" type="text/css" href="css/main.css"/>

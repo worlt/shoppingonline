@@ -50,7 +50,7 @@
   <div class="con">
     <div class="form">
       <form action="<%=request.getContextPath()%>/AdminServlet?key=upmer&mid=<%=merchandise.getMid()%>" method="post">
-        <div class="add">
+
           <div class="add">
             <span class="add_tit">商品编号 ：</span>
             <span class="add_text"><input type="text" name="mid2" id="mid2" value="<%=merchandise.getMid()%>" /></span>
@@ -83,6 +83,7 @@
         <div class="add_sublmit">
           <input type="submit" value="保存"/>
         </div>
+
       </form>
     </div>
   </div>

@@ -16,7 +16,7 @@
     List<Merchandise> hotMerchandise = (List<Merchandise>) request.getAttribute("merchandises");
     User user=new User(0);
     if(session.getAttribute("user")!=null)
-       user=(User)session.getAttribute("user");
+      user=(User)session.getAttribute("user");
 
     String tit1="加入购物车";
     if(request.getAttribute("tit1")!=null)
@@ -56,7 +56,7 @@
   <div class="mer_text">
     <div class="mname"><%=merchandise.getMname()%></div>
     <p>&nbsp;</p>
-<%--    <div class="spec"><input type="radio" checked="checked" name="fnum_radio" value="fnum_radio" /><%=merchandise.getSpec()%></div>--%>
+    <%--    <div class="spec"><input type="radio" checked="checked" name="fnum_radio" value="fnum_radio" /><%=merchandise.getSpec()%></div>--%>
     <div class="up">￥<%=merchandise.getMprice()%></div>
     <div class="mid">商品编号:<%=merchandise.getMid()%></div>
     <hr />
@@ -64,18 +64,18 @@
     <form  method="post" id="fform">
       <div class="fform">
         <div class="fform1">
-      <div class="Uaddress">配送至 :
-        <select name="address" id="sel">
-          <option value="上海">上海</option>
-          <option value="吉林">吉林</option>
-          <option value="山西">山西</option>
-          <option value="北京">北京</option>
-        </select>
-      </div>
-      <div class="Unum"><span id="numl" onclick="number(1,<%=merchandise.getMid()%>)">-</span><span id="num<%=merchandise.getMid()%>">1</span><span id="numr" onclick="number(0,<%=merchandise.getMid()%>)">+</span></div>
-      </div>
-          <div class="Uadd"><input type="button" name="add" id="cart" value="<%=tit1%>" onclick="addCart(<%=user.getId()%>,<%=merchandise.getMid()%>)" /></div>
-          <div class="starbutton"><input type="button" name="add" id="star" value="<%=tit2%>" onclick="addStar(<%=user.getId()%>,<%=merchandise.getMid()%>)"/></div>
+          <div class="Uaddress">配送至 :
+            <select name="address" id="sel">
+              <option value="上海">上海</option>
+              <option value="吉林">吉林</option>
+              <option value="山西">山西</option>
+              <option value="北京">北京</option>
+            </select>
+          </div>
+          <div class="Unum"><span id="numl" onclick="number(1,<%=merchandise.getMid()%>)">-</span><span id="num<%=merchandise.getMid()%>">1</span><span id="numr" onclick="number(0,<%=merchandise.getMid()%>)">+</span></div>
+        </div>
+        <div class="Uadd"><input type="button" name="add" id="cart" value="<%=tit1%>" onclick="addCart(<%=user.getId()%>,<%=merchandise.getMid()%>)" /></div>
+        <div class="starbutton"><input type="button" name="add" id="star" value="<%=tit2%>" onclick="addStar(<%=user.getId()%>,<%=merchandise.getMid()%>)"/></div>
       </div>
     </form>
 

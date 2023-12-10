@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  beans.User: worlt
-  Date: 2023/11/14
-  Time: 22:20
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,24 +21,24 @@
                 <span class="h01">用户登录</span>
                 <div class="xhr"></div>
             </div>
-            <%--          <form action=<%=request.getContextPath()%>/userServlet?key=login  method="post">--%>
-            <form action=<%=request.getContextPath()%>/userServlet?key=login  method="post">
-                <%--        <form action=<%=request.getContextPath()%>/loginServlet? method="post">--%>
+
+            <form action="<%=request.getContextPath()%>/userServlet?key=login" method="post" id="LoginForm">
                 <div class="text_box">
-                    <div class="main"><div class="name">用户名或手机：</div>
+                    <div class="main">
+                        <div class="name">用户名或手机：</div>
                         <input type="text" name="str" id="str" value="" />
                     </div>
-                    <div class="main"><div class="name">密码：</div>
+                    <div class="main">
+                        <div class="name">密码：</div>
                         <input type="password" name="pwd" id="pwd" value="" />
                     </div>
                     <div class="xbutton">
-                        <input type="submit" name="login" id="login" value="登录" />
+                        <input type="submit" name="login" id="login" value="登录" onclick="isLogin()"/>
                     </div>
                     <div class="fpwd">
                         <a href="#">忘记密码 >></a>
                     </div>
                 </div>
-
             </form>
         </div>
 

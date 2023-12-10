@@ -20,13 +20,16 @@ public class UserServiceImpl implements UserService {
     }
 
     public User login(String str, String pwd) {
-        User user = userDao.findByStr(str);
-        if (user.getPwd().equals(pwd)) {
-            user.setPwd("******");
-            return user;
-        } else {
-            return null;
+        try {
+            User user = userDao.findByStr(str);
+            if (user != null && user.getPwd().equals(pwd)) {
+                user.setPwd("******");
+                return user;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     public List<User> findAll() {

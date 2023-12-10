@@ -141,32 +141,39 @@ public class CartServlet extends BaseServlet {
         }
     }
 
-
     // 结算
     public String checkout(HttpServletRequest request, HttpServletResponse response) {
         UserServlet userServlet = new UserServlet();
-        //获取参数
+
+        // 获取参数
         String uidStr = request.getParameter("id");
-        String moneyStr = request.getParameter("totalAmount");
+        String moneyStr = request.getParameter("money");
         int uid = Integer.parseInt(uidStr);
+
+        // 检查moneyStr是否为null
+        if (moneyStr == null) {
+            moneyStr = "0";
+        }
+
         double money = Double.parseDouble(moneyStr);
 
-        UserServiceImpl userService = new UserServiceImpl();
-        User user = userService.findById(uid);
+        // 设置money属性的值
+        request.setAttribute("money", money );
+
         boolean checkout = cartService.checkout(uid, money);
         if (checkout) {
             // 结算成功，跳转到成功页面或订单详情页
-            List<Merchandise> merchandises = cartService.show(uid,true);
+            List<Merchandise> merchandises = cartService.show(uid, true);
             request.setAttribute("merchandises", merchandises);
             request.setAttribute("message", "购买成功");
+            userServlet.finduser(request, response);
             return "redirect:/showcart.jsp";
         } else {
             // 结算失败，返回购物车页面并显示错误信息
-            request.setAttribute("message", "结算失败,请查看余额是否充足，请重试！");
+            request.setAttribute("message", "结算失败，请查看余额是否充足，请重试！");
             return "forward:/showcart.jsp";
         }
     }
-
 
 }
 

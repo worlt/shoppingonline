@@ -11,27 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/userServlet")
+@WebServlet(name = "UserServlet", urlPatterns = "/userServlet")
 public class UserServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
 
     //登录
     public String login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //获取参数
+        // 获取参数
         String str = request.getParameter("str");
         String pwd = request.getParameter("pwd");
 
-        //调用业务逻辑实现
+        // 调用业务逻辑实现
         User loginUser = userService.login(str, pwd);
         if (loginUser != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", loginUser);
-            //跳回首页
-//            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            // 跳回首页
             return "redirect:/index.jsp";
         } else {
-            //注册页面不变
-//            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            // 账号或密码错误，跳回登录页面
+            HttpSession session = request.getSession();
+            session.setAttribute("errorMsg", "账号或密码错误");
             return "redirect:/login.jsp";
         }
     }
