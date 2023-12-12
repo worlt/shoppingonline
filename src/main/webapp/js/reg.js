@@ -77,8 +77,12 @@ function isPwd2(){
 	return false;
 }
 
-function isLogin() {
-
+function isReg()
+{
+	if(isName()&&isPhone()&&isPwd1()&&isPwd2())
+		document.getElementById("regForm").submit();
+	else
+		alert("请完成注册单!");
 }
 
 

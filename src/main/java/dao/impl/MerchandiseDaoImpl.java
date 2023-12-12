@@ -60,11 +60,23 @@ public class MerchandiseDaoImpl implements MerchandiseDao {
         }
     }
 
+    //查询商品的类型
+    public List<Merchandise> findType(String type) {
+        String sql = "SELECT * FROM merchandise WHERE type = ?";
+        List<Merchandise> merchandiseList = null;
+        try {
+            merchandiseList = queryRunner.query(sql, new BeanListHandler<Merchandise>(Merchandise.class), type);
+            return merchandiseList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     //添加商品
     public int add(Merchandise Merchandise) {
-        String sql = "INSERT INTO merchandise(mid, mname, mprice, intro, tips, inum) VALUES (?, ?, ?, ?, ?, ?)";
-        Object[] params = {Merchandise.getMid(),Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum()};
+        String sql = "INSERT INTO merchandise(mid, mname, mprice, intro, tips, inum, stock) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        Object[] params = {Merchandise.getMid(),Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(), Merchandise.getStock()};
         try {
             int add = queryRunner.update(sql,params);
             return add;
@@ -76,8 +88,8 @@ public class MerchandiseDaoImpl implements MerchandiseDao {
     //修改商品
     public int update(Merchandise Merchandise) {
 
-        String sql = "UPDATE merchandise SET  mname=?, mprice=?, intro=?, tips=?, inum=? WHERE mid = ?;";
-        Object[] params = {Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(),Merchandise.getMid()};
+        String sql = "UPDATE merchandise SET  mname=?, mprice=?, intro=?, tips=?, inum=?, stock=? WHERE mid = ?;";
+        Object[] params = {Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(),Merchandise.getMid(), Merchandise.getStock()};
         try {
             int update = queryRunner.update(sql,params);
             return update;

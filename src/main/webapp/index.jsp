@@ -60,6 +60,9 @@
                     "      <div class=\"mer_name\">\n" +
                     "        <a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+id+"&mid="+merchandise.getMid()+"\">"+merchandise.getMname()+"</a>\n" +
                     "      </div>\n" +
+                    "      <div class=\"fruit_num\">\n" +
+                    "        "+ "库存：" + merchandise.getStock() +"\n" +
+                    "      </div>\n" +
                     "      <div class=\"mer_mon\">\n" +
                     "        "+merchandise.getMprice()+"\n" +
                     "      </div>\n" +

@@ -33,11 +33,8 @@
                         "        <div class=\"star\">\n" +
                         "          <div class=\"star_img\">\n" +
                         "          </div>\n" +
-                        "          <div class=\"toStar\"><a href=\"" + request.getContextPath() + "/cartServlet?key=show&id=" + user.getId() + "&boob=star\">我的关注</a>\n" +
-                        "          </div>\n" +
-                        "        </div>\n" +
-                        "          </div>\n" +
-                        "          <div class=\"toStar\"><a href=\"" + request.getContextPath() + "/orderServlet?key=show&id=" + user.getId() + "\">历史订单</a>\n" +
+                        "          <div class=\"toStar\"><a href=\"" + request.getContextPath() + "/cartServlet?key=show&id=" + user.getId() + "&boob=star\">我的关注</a></div>\n" +
+                        "          <div class=\"toStar\"><a href=\"" + request.getContextPath() + "/orderServlet?key=show&id=" + user.getId() + "\">历史订单</a></div>\n" +
                         "          </div>\n" +
                         "        </div>\n" +
                         "      </div>");

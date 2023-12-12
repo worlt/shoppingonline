@@ -65,7 +65,7 @@
                 "      </div>\n" +
                 "\n" +
                 "      <div class=\"s5\">\n" +
-                "        ￥<span id=\"sum"+merchandise.getMid()+"\" class=\"f\">"+merchandise.getMprice()+"</span>\n" +
+                "        ￥<span id=\"sum"+merchandise.getMid()+"\" class=\"fsum\">"+merchandise.getMprice()+"</span>\n" +
                 "      </div>\n" +
                 "\n" +
                 "      <div class=\"s6\">\n" +
@@ -82,7 +82,7 @@
     <div class="sum_mon">
         <div class="money">商品总金额：<span id="money"></span> </div>
         <br/>
-        <button type="submit" id="addmon" onclick="window.open('recharge.jsp','_blank','width=200px;height=200px')">点击进行订单结算</button>
+        <button type="submit" id="addmon" onclick="window.open('recharge.jsp','_blank','width=100px;height=100px;')">点击进行订单结算</button>
     </div>
     </form>
 </div>

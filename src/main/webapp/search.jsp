@@ -58,6 +58,15 @@
           </li>
         </ul>
 
+        <ul class="selmers_ul">
+          <li class="selmers_li">
+            类型：
+            <a href="<%=request.getContextPath()%>/searchServlet?key=all" class="selkey sgreen">不限</a>
+            <a href="<%=request.getContextPath()%>/searchServlet?key=type&selkey=手机" class="selkey sgreen">手机</a>
+            <a href="<%=request.getContextPath()%>/searchServlet?key=type&selkey=笔记本" class="selkey sgreen">笔记本</a>
+          </li>
+        </ul>
+
       </div>
 
 
@@ -74,9 +83,9 @@
                       "          <div class=\"mer_name\">\n" +
                       "            <a href=\""+request.getContextPath()+"/merchandiseServlet?key=info&id="+ user.getId()+"&mid="+Merchandise.getMid()+"\">"+Merchandise.getMname()+"</a>\n" +
                       "          </div>\n" +
-//                      "          <div class=\"mer_spec\">\n" +
-//                      "            "+Merchandise.getInum()+"\n" +
-//                      "          </div>\n" +
+                      "          <div class=\"mer_spec\">\n" +
+                      "            "+"库存："+Merchandise.getStock()+"\n" +
+                      "          </div>\n" +
                       "          <div class=\"mer_up\">\n" +
                       "            ￥"+Merchandise.getMprice()+"\n" +
                       "          </div>\n" +

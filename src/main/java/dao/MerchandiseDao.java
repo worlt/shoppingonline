@@ -17,6 +17,9 @@ public interface MerchandiseDao {
     //查询所有商品
     public List<Merchandise> findAll();
 
+    //查询商品的类型
+    public List<Merchandise> findType(String type);
+
     //新增商品
     public int add(Merchandise merchandise);
 

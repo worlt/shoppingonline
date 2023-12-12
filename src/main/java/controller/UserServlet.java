@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/userServlet")
 public class UserServlet extends BaseServlet {
@@ -31,7 +32,9 @@ public class UserServlet extends BaseServlet {
         } else {
             // 账号或密码错误，跳回登录页面
             HttpSession session = request.getSession();
-            session.setAttribute("errorMsg", "账号或密码错误");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('登录失败 将返回主页面 未找到该用户 请您注册之后再次尝试进行登录'); window.location.href='login.jsp';</script>");
+            out.flush();
             return "redirect:/login.jsp";
         }
     }

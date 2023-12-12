@@ -81,6 +81,11 @@
 
     <hr />
     <div class="finfo">
+      <h3>库存：
+        <span id="stock_num"><%=merchandise.getStock()%></span></h3>
+    </div>
+    <hr />
+    <div class="finfo">
       <h3>商品简介</h3>
       <p id="finfo_text"><%=merchandise.getIntro()%></p>
     </div>

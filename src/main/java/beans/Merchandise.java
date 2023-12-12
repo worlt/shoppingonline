@@ -6,11 +6,16 @@ public class Merchandise {
     private double mprice;
     private String intro;
     private String tips;
-
     private int inum;
+    private int stock;
+    private String type;
 
-
-
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
     public int getMid() {
         return mid;
     }
@@ -59,6 +64,14 @@ public class Merchandise {
         this.inum = inum;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     public Merchandise(int mid, String mname, double mprice, String intro, String tips, int inum) {
         this.mid = mid;
         this.mname = mname;
@@ -77,5 +90,44 @@ public class Merchandise {
         this.intro = intro;
         this.tips = tips;
         this.inum = inum;
+    }
+
+    public Merchandise(int mid, String mname, double mprice, String intro, String tips, int inum, int stock) {
+        this.mid = mid;
+        this.mname = mname;
+        this.mprice = mprice;
+        this.intro = intro;
+        this.tips = tips;
+        this.inum = inum;
+        this.stock = stock;
+    }
+    public Merchandise(String mname, double mprice, String intro, String tips, int inum, int stock) {
+        this.mname = mname;
+        this.mprice = mprice;
+        this.intro = intro;
+        this.tips = tips;
+        this.inum = inum;
+        this.stock = stock;
+    }
+
+    public Merchandise(int mid, String mname, double mprice, String intro, String tips, int inum, int stock, String type) {
+        this.mid = mid;
+        this.mname = mname;
+        this.mprice = mprice;
+        this.intro = intro;
+        this.tips = tips;
+        this.inum = inum;
+        this.stock = stock;
+        this.type = type;
+    }
+
+    public Merchandise(String mname, double mprice, String intro, String tips, int inum, int stock, String type) {
+        this.mname = mname;
+        this.mprice = mprice;
+        this.intro = intro;
+        this.tips = tips;
+        this.inum = inum;
+        this.stock = stock;
+        this.type = type;
     }
 }

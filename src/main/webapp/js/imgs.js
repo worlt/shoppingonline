@@ -75,7 +75,7 @@ function sum(mid) {
 }
 
 function money() {
-    var sums = document.getElementsByClassName("f");
+    var sums = document.getElementsByClassName("fsum");
     var num = 0;
     for (var i = 0; i < sums.length; i++) {
         num += parseInt(sums[i].innerText);

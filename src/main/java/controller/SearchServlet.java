@@ -48,7 +48,6 @@ public class SearchServlet extends BaseServlet {
         return "forward:/search.jsp";
     }
 
-
     //根据价格搜索
     public String money(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //获取参数
@@ -65,12 +64,29 @@ public class SearchServlet extends BaseServlet {
             start = 3000;
             end = 999999;
         }
-        //查询所有的水果
+        //查询所有的商品
         List<Merchandise> all = merchandiseService.findAll();
         List<Merchandise> merchandiseList = new ArrayList<Merchandise>();
         for (Merchandise Merchandise : all){
             if  (Merchandise.getMprice() >= start && Merchandise.getMprice() < end){
                 merchandiseList.add(Merchandise);
+            }
+        }
+        request.setAttribute("selMerchandises",merchandiseList);
+        return "forward:/search.jsp";
+    }
+
+    //根据价格搜索
+    public String type(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        //获取参数
+        String key = request.getParameter("selkey");
+
+        //查询所有的商品
+        List<Merchandise> all = merchandiseService.findAll();
+        List<Merchandise> merchandiseList = new ArrayList<Merchandise>();
+        for (Merchandise merchandise : all){
+            if  (merchandise.getType().equals(key)){
+                merchandiseList.add(merchandise);
             }
         }
         request.setAttribute("selMerchandises",merchandiseList);
