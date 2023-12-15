@@ -53,34 +53,40 @@ function himg(n) {
     }
 }
 
-function number(s, mid) {
-    var num = document.getElementById("num" + mid);
+function number(s,mid){
+    var num=document.getElementById("num"+mid);
 
-    if (s == "0") {
-        num.innerText = parseInt(num.innerText) + 1;
-    } else if (s == "1") {
-        var k = parseInt(num.innerText) - 1;
-        num.innerText = k < 1 ? 1 : k;
+    if(s=="0")
+    {
+        num.innerText=parseInt(num.innerText)+1;
+    }
+    else if(s=="1")
+    {
+        var k=parseInt(num.innerText)-1;
+
+        num.innerText=k<1?1:k;
     }
 }
 
-function sum(mid) {
-    var up = parseFloat(document.getElementById("up" + mid).innerText);
-    var sum = document.getElementById("sum" + mid);
-    var num = parseFloat(document.getElementById("num" + mid).innerText);
-    var cen = up * num;
-    sum.innerText = cen;
-    document.getElementById("num").innerText = num;
-
+function sum(mid)
+{
+    var up=parseFloat(document.getElementById("up"+mid).innerText);
+    var sum=document.getElementById("sum"+mid);
+    var num=parseFloat(document.getElementById("num"+mid).innerText);
+    var cen=up*num;
+    sum.innerText=cen;
 }
 
-function money() {
-    var sums = document.getElementsByClassName("fsum");
-    var num = 0;
-    for (var i = 0; i < sums.length; i++) {
-        num += parseInt(sums[i].innerText);
+function money()
+{
+    var sums=document.getElementsByClassName("fsum");
+    var num=0;
+    for(var i=0;i<sums.length;i++)
+    {
+        num+=parseInt(sums[i].innerText);
     }
-    document.getElementById("money").innerText = num;
+
+    document.getElementById("money").innerText=num;
 }
 
 function show() {

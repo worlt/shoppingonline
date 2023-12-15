@@ -80,13 +80,11 @@
             </div>
 
     <div class="sum_mon">
-        <div class="money">商品总金额：<span id="money"></span> </div>
-        <br/>
+        <div class="money">商品总金额：<span id="money"></span> </div><br/>
         <button type="submit" id="addmon" onclick="window.open('recharge.jsp','_blank','width=100px;height=100px;')">点击进行订单结算</button>
     </div>
     </form>
 </div>
 </div>
-
 </body>
 </html>
