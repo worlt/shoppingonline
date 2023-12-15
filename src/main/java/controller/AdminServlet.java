@@ -119,13 +119,16 @@ public class AdminServlet extends BaseServlet {
         String mid1Str = request.getParameter("mid1");
         String mname1 = request.getParameter("mname1");
         String mprice1Str = request.getParameter("mprice1");
+        String stock1Str = request.getParameter("stock1");
+        String type1 = request.getParameter("type1");
         String intro1 = request.getParameter("intro1");
         String tips1 = request.getParameter("tips1");
         String inum1Str = request.getParameter("inum1");
         int mid1 = Integer.parseInt(mid1Str);
         double mprice1 = Double.parseDouble(mprice1Str);
+        int stock1 = Integer.parseInt(stock1Str);
         int inum1 = Integer.parseInt(inum1Str);
-        Merchandise merchandise = new Merchandise(mid1,mname1,mprice1,intro1,tips1,inum1);
+        Merchandise merchandise = new Merchandise(mid1,mname1,mprice1,intro1,tips1,inum1,stock1,type1);
         //调用业务逻辑
         boolean addMer = merchandiseService.add(merchandise);
         if (addMer) {
@@ -171,14 +174,16 @@ public class AdminServlet extends BaseServlet {
         String mid2Str = request.getParameter("mid2");
         String mname2 = request.getParameter("mname2");
         String mprice2Str = request.getParameter("mprice2");
+        String stock2Str = request.getParameter("stock2");
+        String type2 = request.getParameter("type2");
         String intro2 = request.getParameter("intro2");
         String tips2 = request.getParameter("tips2");
         String inum2Str = request.getParameter("inum2");
         int mid2 = Integer.parseInt(mid2Str);
         double mprice2 = Double.parseDouble(mprice2Str);
+        int stock2 = Integer.parseInt(stock2Str);
         int inum2 = Integer.parseInt(inum2Str);
-
-        Merchandise merchandise = new Merchandise(mid2,mname2,mprice2,intro2,tips2,inum2);
+        Merchandise merchandise = new Merchandise(mid2,mname2,mprice2,intro2,tips2,inum2,stock2,type2);
         boolean update = merchandiseService.update(merchandise);
         if (update){
             return "redirect:/AdminServlet?key=allmer"; //使用重定向

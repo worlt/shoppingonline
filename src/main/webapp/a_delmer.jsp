@@ -55,6 +55,10 @@
 <%--        <li class="i">&nbsp;</li>--%>
         <li>单价</li>
         <li class="i">&nbsp;</li>
+        <li>库存</li>
+        <li class="i">&nbsp;</li>
+        <li>类型</li>
+        <li class="i">&nbsp;</li>
         <li>操作</li>
       </ul>
     </div>
@@ -72,6 +76,10 @@
                   "        <li><a href=\""+request.getContextPath()+"/AdminServlet?key=findmer&mid="+merchandise.getMid()+"\">"+ merchandise.getMname()+"</a></li>\n" +
                   "        <li class=\"i\">&nbsp;</li>\n" +
                   "        <li><a href=\""+request.getContextPath()+"/AdminServlet?key=findmer&mid="+merchandise.getMid()+"\">"+ merchandise.getMprice()+"</a></li>\n" +
+                  "        <li class=\"i\">&nbsp;</li>\n" +
+                  "        <li><a href=\""+request.getContextPath()+"/AdminServlet?key=findmer&mid="+merchandise.getMid()+"\">"+ merchandise.getStock()+"</a></li>\n" +
+                  "        <li class=\"i\">&nbsp;</li>\n" +
+                  "        <li><a href=\""+request.getContextPath()+"/AdminServlet?key=findmer&mid="+merchandise.getMid()+"\">"+ merchandise.getType()+"</a></li>\n" +
                   "        <li class=\"i\">&nbsp;</li>\n" +
                   "        <li><a href=\""+request.getContextPath()+"/AdminServlet?key=delmer&mid="+merchandise.getMid()+"\">删除</a></li>\n" +
                   "      </ul>\n" +

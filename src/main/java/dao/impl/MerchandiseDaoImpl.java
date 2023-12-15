@@ -75,8 +75,8 @@ public class MerchandiseDaoImpl implements MerchandiseDao {
 
     //添加商品
     public int add(Merchandise Merchandise) {
-        String sql = "INSERT INTO merchandise(mid, mname, mprice, intro, tips, inum, stock) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        Object[] params = {Merchandise.getMid(),Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(), Merchandise.getStock()};
+        String sql = "INSERT INTO merchandise(mid, mname, mprice, intro, tips, inum, stock, type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        Object[] params = {Merchandise.getMid(),Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(), Merchandise.getStock(),Merchandise.getType()};
         try {
             int add = queryRunner.update(sql,params);
             return add;
@@ -88,8 +88,8 @@ public class MerchandiseDaoImpl implements MerchandiseDao {
     //修改商品
     public int update(Merchandise Merchandise) {
 
-        String sql = "UPDATE merchandise SET  mname=?, mprice=?, intro=?, tips=?, inum=?, stock=? WHERE mid = ?;";
-        Object[] params = {Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(),Merchandise.getMid(), Merchandise.getStock()};
+        String sql = "UPDATE merchandise SET  mname=?, mprice=?, intro=?, tips=?, inum=?, stock=?, type=? WHERE mid = ?;";
+        Object[] params = {Merchandise.getMname(),Merchandise.getMprice(),Merchandise.getIntro(), Merchandise.getTips(),Merchandise.getInum(), Merchandise.getStock(),Merchandise.getType(), Merchandise.getMid()};
         try {
             int update = queryRunner.update(sql,params);
             return update;

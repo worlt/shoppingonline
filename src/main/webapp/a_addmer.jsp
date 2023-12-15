@@ -64,6 +64,16 @@
           <span class="add_text"><input type="text" name="mprice1" id="mprice1" value="" /></span>
         </div>
 
+          <div class="add">
+          <span class="add_tit">库存 ：</span>
+          <span class="add_text"><input type="text" name="stock1" id="stock1" value="" /></span>
+        </div>
+
+          <div class="add">
+          <span class="add_tit">类型 ：</span>
+          <span class="add_text"><input type="text" name="type1" id="type1" value="" /></span>
+        </div>
+
         <div class="add">
           <span class="add_tit" >商品简介 ：</span>
           <span class="add_text"><input type="text" class="long" name="intro1" id="intro1" value="" /></span>

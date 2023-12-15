@@ -42,7 +42,7 @@
 
 </div>
 <%
-  Merchandise merchandise=new Merchandise(0,"",0,"","",0);
+  Merchandise merchandise=new Merchandise(0,"",0,"","",0,0,"");
   if(request.getAttribute("merchandise")!=null)
     merchandise=(Merchandise) request.getAttribute("merchandise");
 %>
@@ -63,6 +63,16 @@
           <div class="add">
             <span class="add_tit">单价 ：</span>
             <span class="add_text"><input type="text" name="mprice2" id="mprice2" value="<%=merchandise.getMprice()%>" /></span>
+          </div>
+
+        <div class="add">
+            <span class="add_tit">库存 ：</span>
+            <span class="add_text"><input type="text" name="stock2" id="stock2" value="<%=merchandise.getStock()%>" /></span>
+          </div>
+
+        <div class="add">
+            <span class="add_tit">类型 ：</span>
+            <span class="add_text"><input type="text" name="type2" id="type2" value="<%=merchandise.getType()%>" /></span>
           </div>
 
           <div class="add">
