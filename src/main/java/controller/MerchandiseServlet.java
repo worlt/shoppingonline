@@ -46,7 +46,7 @@ public class MerchandiseServlet extends BaseServlet{
 
         hot(request,response);
 
-        //跳转到水果详情页面
+        //跳转到详情页面
         return "forward:/merchandise_info.jsp";
     }
 

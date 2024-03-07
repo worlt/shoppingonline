@@ -105,7 +105,7 @@ public class AdminServlet extends BaseServlet {
         return null;
     }
 
-    //展示水果列表
+    //展示商品列表
     public String allmer(HttpServletRequest request, HttpServletResponse response){
         //调用业务逻辑
         List<Merchandise> all = merchandiseService.findAll();

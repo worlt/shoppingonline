@@ -39,7 +39,7 @@
 <div class="gong" id="x0" >
   <div class="con">
     <div class="hello">
-      <h1>欢迎进入天天果园后台管理系统</h1>
+      <h1>欢迎进入罗友购物网后台管理系统</h1>
     </div>
   </div>
 </div>

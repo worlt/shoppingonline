@@ -11,7 +11,7 @@
  Target Server Version : 80032
  File Encoding         : 65001
 
- Date: 12/12/2023 16:54:30
+ Date: 20/12/2023 19:57:37
 */
 
 SET NAMES utf8mb4;
@@ -52,12 +52,12 @@ CREATE TABLE `merchandise`  (
   `stock` int(0) NULL DEFAULT NULL,
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`mid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1002 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of merchandise
 -- ----------------------------
-INSERT INTO `merchandise` VALUES (1, 'HUAWEI Mate 60 Pro', 6999.00, '卫星通话，超可靠玄武架构，全焦段超清影像', '先有华为后有天，麒麟9000卖6000', 3, 0, '手机');
+INSERT INTO `merchandise` VALUES (1, 'HUAWEI Mate 60 Pro', 6999.00, '卫星通话，超可靠玄武架构，全焦段超清影像', '先有华为后有天，麒麟9000卖6000', 3, 1453, '手机');
 INSERT INTO `merchandise` VALUES (2, '小米14', 3999.00, '徕卡光学镜头 光影猎人900 徕卡75mm浮动长焦 骁龙8Gen3', '3999交个朋友，干翻友商！', 3, 123123, '手机');
 INSERT INTO `merchandise` VALUES (3, 'HUAWEI MateBook 14s', 6199.00, '13代酷睿标压处理器，2.5K高刷触控屏', '本产品全国联保，享受三包服务，质保期为：主机、主要部件、电源线自购机日起2年（含）免费保修，电池、预置windows系统、皮套键盘、扩展坞、鼠标、转接头等其他配件自购机日起1年（含）免费保修，背包不保修。', 3, 3464323, '笔记本');
 INSERT INTO `merchandise` VALUES (4, 'Vivo X100', 3999.00, '专业影像旗舰，蔡司全焦段影像系统，蓝晶 ×天玑 9300，全大核设计，蓝海续航系统，OriginOS 4.', '蔡司全焦段专业影像 方寸细节，自然真实 精度跃迁一英寸主摄 蔡司 APO 超级长焦 超视野超广角摄像头', 3, 312432, '手机');
@@ -83,7 +83,7 @@ CREATE TABLE `orders`  (
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`mid`) REFERENCES `merchandise` (`mid`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
@@ -123,6 +123,12 @@ INSERT INTO `orders` VALUES (95, 8, 2, '小米14', 1, '2023-12-12 16:26:13');
 INSERT INTO `orders` VALUES (96, 8, 1, 'HUAWEI Mate 60 Pro', 1, '2023-12-12 16:26:46');
 INSERT INTO `orders` VALUES (97, 8, 2, '小米14', 1, '2023-12-12 16:26:46');
 INSERT INTO `orders` VALUES (98, 8, 8, 'Xiaomi MIX Fold 3', 1, '2023-12-12 16:26:46');
+INSERT INTO `orders` VALUES (99, 3, 1, 'HUAWEI Mate 60 Pro', 1, '2023-12-15 12:42:01');
+INSERT INTO `orders` VALUES (100, 3, 3, 'HUAWEI MateBook 14s', 1, '2023-12-15 12:42:01');
+INSERT INTO `orders` VALUES (101, 9, 1, 'HUAWEI Mate 60 Pro', 1, '2023-12-18 23:23:55');
+INSERT INTO `orders` VALUES (102, 10, 9, 'iQOO 12 传奇版', 1, '2023-12-19 08:29:51');
+INSERT INTO `orders` VALUES (103, 10, 9, 'iQOO 12 传奇版', 1, '2023-12-19 08:30:29');
+INSERT INTO `orders` VALUES (104, 10, 5, 'iPhone 15 Pro', 1, '2023-12-19 08:30:29');
 
 -- ----------------------------
 -- Table structure for shop
@@ -141,14 +147,18 @@ CREATE TABLE `shop`  (
 INSERT INTO `shop` VALUES (1, 1, 1, 0);
 INSERT INTO `shop` VALUES (1, 3, 1, 0);
 INSERT INTO `shop` VALUES (1, 2, 0, 0);
-INSERT INTO `shop` VALUES (1, 4, 0, 0);
+INSERT INTO `shop` VALUES (1, 4, 0, 1);
 INSERT INTO `shop` VALUES (3, 1, 0, 1);
-INSERT INTO `shop` VALUES (3, 3, 0, 1);
+INSERT INTO `shop` VALUES (3, 3, 0, 0);
 INSERT INTO `shop` VALUES (4, 2, 0, 0);
 INSERT INTO `shop` VALUES (6, 1, 0, 1);
 INSERT INTO `shop` VALUES (8, 1, 1, 0);
 INSERT INTO `shop` VALUES (8, 2, 0, 0);
 INSERT INTO `shop` VALUES (8, 8, 0, 0);
+INSERT INTO `shop` VALUES (3, 2, 0, 1);
+INSERT INTO `shop` VALUES (9, 1, 1, 0);
+INSERT INTO `shop` VALUES (10, 9, 0, 0);
+INSERT INTO `shop` VALUES (10, 5, 0, 0);
 
 -- ----------------------------
 -- Table structure for user
@@ -162,7 +172,7 @@ CREATE TABLE `user`  (
   `balance` double(255, 2) NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -173,5 +183,7 @@ INSERT INTO `user` VALUES (4, '1', '18948655890', '123', NULL, NULL);
 INSERT INTO `user` VALUES (5, '6', '18904899570', '123', NULL, NULL);
 INSERT INTO `user` VALUES (7, 'qq', '18903677589', '123', NULL, NULL);
 INSERT INTO `user` VALUES (8, 'pp', '18967855346', '123', NULL, NULL);
+INSERT INTO `user` VALUES (9, 'b', '18562355412', '123', NULL, NULL);
+INSERT INTO `user` VALUES (10, '战士', '18948653211', '123', 100.00, '广州软件学院');
 
 SET FOREIGN_KEY_CHECKS = 1;
